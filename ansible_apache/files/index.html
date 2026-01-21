@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage - Mvudi Dan</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    p { margin: 6px 0; }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Mvudi Dan</h1>
+
+    <p><strong>Datum & tijd:</strong> <span id="datetime"></span></p>
+    <p><strong>Locatie:</strong> <span id="location"></span></p>
+    <p><strong>IP-adres:</strong> <span id="ip"></span></p>
+  </div>
+
+
+  <script>
+    // --- DATUM + TIJD (live) ---
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent =
+        now.toLocaleDateString("nl-BE") + " " + now.toLocaleTimeString("nl-BE");
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+
+    // --- LOCATIE + IP via ipapi.co ---
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("ip").textContent = data.ip;
+        document.getElementById("location").textContent =
+          data.city + ", " + data.country_name;
+      })
+      .catch(() => {
+        document.getElementById("ip").textContent = "IP niet beschikbaar";
+        document.getElementById("location").textContent = "Locatie niet beschikbaar";
+      });
+  </script>
+
+</body>
+</html>

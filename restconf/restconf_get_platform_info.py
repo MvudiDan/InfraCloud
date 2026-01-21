@@ -78,7 +78,6 @@ if inv_data:
         model = c.get("model-name", "")
         serial = c.get("serial-number", "")
         print(f"- {name}: {desc} | Model={model} | SN={serial}")
-S
 # === [4] Interfaces ===
 int_data = restconf_get(
     "ietf-interfaces:interfaces?fields=interface(name;description;type;enabled;ietf-ip:ipv4/address)"
