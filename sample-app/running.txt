@@ -1,0 +1,3 @@
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+6f681b424c18        76a545d97be5        "/bin/sh -c 'pip ins…"   4 minutes ago       Exited (2) 4 minutes ago                        determined_northcutt
+0f7b251373ed        76a545d97be5        "/bin/sh -c 'pip ins…"   15 minutes ago      Exited (2) 15 minutes ago                       amazing_gagarin
