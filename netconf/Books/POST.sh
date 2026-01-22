@@ -1,1 +1,0 @@
-curl -X POST "http://library.demo.local/api/v1/books/"$BOOK
